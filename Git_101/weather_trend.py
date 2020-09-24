@@ -14,7 +14,7 @@ weather_dat=pd.read_csv("2281205.csv")
 X = np.array(range(weather_dat.shape[0]))
 
 #extract variable that we want to "predict"
-Y = np.array(weather_dat.TAVG)
+Y = np.array(weather_dat.TMAX)
 
 #THIS LINE IS NONSENSE...or is it? you decide if it should stay or go
 
@@ -23,9 +23,9 @@ X=X[np.logical_not(np.isnan(Y))]
 Y=Y[np.logical_not(np.isnan(Y))]
 
 #calculate results of ordinary least squares regression
-results =OLS(Y,X).fit().summary()
+results2 =OLS(Y,X).fit().summary()
 
 #open text file and save model results
-text_file = open("results.txt", "w")
-text_file.write(str(results))
+text_file = open("results2.txt", "w")
+text_file.write(str(results2))
 text_file.close()
